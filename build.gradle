@@ -1,0 +1,40 @@
+apply plugin: 'java'
+apply plugin: 'java-library-distribution'
+apply plugin: 'eclipse'
+
+version = '0.1'
+group = 'fr.jeci.alfresco'
+
+sourceCompatibility = 1.7
+
+archivesBaseName = "graphical-alfresco-datamodel"
+
+dependencies {
+    compile 'commons-io:commons-io:2.4'
+    compile 'org.alfresco:alfresco-repository:5.0.d@jar'
+    
+    testCompile 'junit:junit:4.11'
+    
+}
+
+repositories {
+    mavenLocal()
+    mavenCentral()
+    maven {
+        url "https://artifacts.alfresco.com/nexus/content/groups/public"
+    }
+}
+
+jar {
+    manifest {
+        attributes 'Implementation-Title': 'Graphical Alfresco Data Model',
+                   'Implementation-Version': version,
+                   'Main-Class': 'fr.jeci.alfresco.gadm.DataModelToDOT',
+                   'Class-Path': configurations.runtime.files.collect { "lib/$it.name" }.join(' ')
+    }
+}
+
+task wrapper(type: Wrapper) {
+    gradleVersion = '1.12'
+}
+

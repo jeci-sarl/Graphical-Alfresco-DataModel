@@ -11,6 +11,7 @@ archivesBaseName = "graphical-alfresco-datamodel"
 
 dependencies {
     compile 'commons-io:commons-io:2.4'
+    compile 'commons-cli:commons-cli:1.2'
     compile 'org.alfresco:alfresco-repository:5.0.d@jar'
     
     testCompile 'junit:junit:4.11'
@@ -29,7 +30,7 @@ jar {
     manifest {
         attributes 'Implementation-Title': 'Graphical Alfresco Data Model',
                    'Implementation-Version': version,
-                   'Main-Class': 'fr.jeci.alfresco.gadm.DataModelToDOT',
+                   'Main-Class': 'fr.jeci.alfresco.gadm.MainGadm',
                    'Class-Path': configurations.runtime.files.collect { "lib/$it.name" }.join(' ')
     }
 }

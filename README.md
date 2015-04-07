@@ -20,9 +20,14 @@ gradle installDist
 
 ``` bash
 cd build/install/Graphical-Alfresco-DataModel/
-java -jar graphical-alfresco-datamodel-0.1.jar
-xdot mdd_alfresco.dot
+
+# Printing standard Alfresco Content Model
+java -jar graphical-alfresco-datamodel-0.2.jar -a contentModel.xml | xdot -
+
+# Print your own content model
+java -jar graphical-alfresco-datamodel-0.2.jar -c MyCustomModel.xml > MyCustomModel.gv
+dot -Tpng MyCustomModel.gv -o MyCustomModel.png
 ```
 
-This is a demo code, that generate a graph based on official Alfresco Content Model.
+
 

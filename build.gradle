@@ -2,7 +2,7 @@ apply plugin: 'java'
 apply plugin: 'java-library-distribution'
 apply plugin: 'eclipse'
 
-version = '0.1'
+version = '0.2'
 group = 'fr.jeci.alfresco'
 
 sourceCompatibility = 1.7
